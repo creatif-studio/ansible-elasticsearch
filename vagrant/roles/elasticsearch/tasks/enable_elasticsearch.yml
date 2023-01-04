@@ -9,7 +9,7 @@
     state: started 
     enabled: yes
 
-- name: wait elasticsearh to be ready
+- name: wait elasticsearch to be ready
   ansible.builtin.uri:
     url: "{{ virtual_proto }}://localhost:9200"
     status_code: 200
