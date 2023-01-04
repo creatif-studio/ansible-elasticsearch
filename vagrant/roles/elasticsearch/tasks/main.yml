@@ -4,13 +4,6 @@
 - include_tasks: 
     file: preflight.yml
 
-# - include_tasks: 
-#     file: setup_hosts.yml
-#     apply:
-#       tags: elkhosts,elasticsearch
-#   tags: elkhosts,elasticsearch
-#   when: elasticsearch_resolv_mode == 'hosts'
-
 - include_tasks: 
     file: install_elasticsearch.yml
     apply:
