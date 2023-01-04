@@ -1,0 +1,6 @@
+---
+elastic_apm_server_signing_key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+elastic_apm_server_repository: "deb https://artifacts.elastic.co/packages/7.x/apt stable main"
+
+elastic_apm_server_oss_repository: "deb https://artifacts.elastic.co/packages/oss-7.x/apt stable main"

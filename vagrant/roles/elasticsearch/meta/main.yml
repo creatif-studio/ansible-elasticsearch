@@ -1,0 +1,17 @@
+---
+dependencies: []
+
+galaxy_info:
+  description: 'Setup elasticsearch cluster'
+  platforms:
+    - name: Ubuntu
+      versions:
+        - jammy
+        - focal
+    - name: Fedora
+      versions:
+        - 35
+  galaxy_tags:
+    - elk
+    - elasticsearch
+    - cluster

@@ -1,0 +1,6 @@
+[elasticsearch]
+elk-node1 ansible_host=192.168.56.4
+[logstash]
+elk-node1 ansible_host=192.168.56.4
+[kibana]
+elk-node1 ansible_host=192.168.56.4
