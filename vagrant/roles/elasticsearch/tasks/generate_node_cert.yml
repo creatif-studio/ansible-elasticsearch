@@ -1,0 +1,34 @@
+---
+
+- name: CA exists
+  stat:
+    path: "{{ elasticsearch_certs_dir}}/{{ elasticsearch_ca_filename }}"
+  register: ca_file
+
+- name: Copy elasticsearch CA
+  ansible.builtin.copy:
+    src: "{{ elasticsearch_local_certs_dir }}/{{ elasticsearch_ca_filename }}"
+    dest: "{{ elasticsearch_certs_dir }}/{{ elasticsearch_ca_filename }}"
+    owner: "{{ elasticsearch_user }}"
+    group: "{{ elasticsearch_group }}"
+    mode: 0644
+  when: not ca_file.stat.exists
+
+- name: cert exists
+  stat:
+    path: "{{ elasticsearch_certs_dir}}/{{ elasticsearch_cert_filename }}"
+  register: cert_file
+  
+- name: generate node cert
+  ansible.builtin.command: > 
+    {{ elasticsearch_extract_dir }}/elasticsearch/bin/elasticsearch-certutil
+    cert --ca {{ elasticsearch_certs_dir}}/{{ elasticsearch_ca_filename }} --ca-pass {{ elasticsearch_ca_password }} 
+    --out {{ elasticsearch_certs_dir}}/{{ elasticsearch_cert_filename }} --pass {{ elasticsearch_cert_password }}
+  when: not cert_file.stat.exists
+
+- name: Fix cert permission
+  ansible.builtin.file:
+    path: "{{ elasticsearch_certs_dir}}/{{ elasticsearch_cert_filename }}"
+    owner: "{{ elasticsearch_user }}"
+    group: "{{ elasticsearch_group }}"
+    mode: 0644

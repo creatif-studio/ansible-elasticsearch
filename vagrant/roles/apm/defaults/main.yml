@@ -1,0 +1,14 @@
+---
+elastic_apm_server_dependencies:
+  - apt-transport-https
+  - gnupg
+
+elastic_apm_server_use_oss: false
+
+# See https://github.com/elastic/apm-server/blob/master/apm-server.yml
+elastic_apm_server_config:
+  apm-server:
+    host: "localhost:8200"
+  output:
+    elasticsearch:
+      hosts: ["localhost:9200"]

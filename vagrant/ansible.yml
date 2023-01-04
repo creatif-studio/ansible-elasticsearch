@@ -1,0 +1,32 @@
+---
+- hosts: elasticsearch
+  become: yes
+  remote_user: "vagrant"
+  vars_files:
+    - vars.yml
+  tasks:
+  - name: Install apt-transport-https and gnupg
+    apt:
+      update_cache: yes
+      name:
+      - apt-transport-https
+      - gnupg
+      state: present
+  - name: Set vm.swappiness to 10
+    sysctl:
+      name: vm.swappiness
+      value: '10'
+      sysctl_set: yes
+  - name: Install elasticsearch
+    import_role:
+      name: elasticsearch
+  - name: Install kibana
+    import_role:
+      name: kibana
+  - name: Install logstash
+    import_role:
+      name: logstash
+  - name: Install apm-server
+    import_role:
+      name: apm
+

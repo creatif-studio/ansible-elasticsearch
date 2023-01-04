@@ -1,0 +1,23 @@
+---
+galaxy_info:
+  role_name: elastic_apm_server
+  namespace: boutetnico
+  author: Nicolas Boutet
+  description: Install and configure Elastic APM server.
+  license: MIT
+  min_ansible_version: "2.10"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+        - jammy
+    - name: Debian
+      versions:
+        - bullseye
+        - buster
+  galaxy_tags:
+    - apm
+    - elastic
+    - elk
+    - server
+dependencies: []
