@@ -12,16 +12,23 @@
       sysctl_set: yes
       state: present
       reload: yes
-  - name: Install Docker and Docker Compose
+  - name: Install Docker 
     apt:
       update_cache: yes
       name:
       - docker.io
-      - docker-compose
     become: true
+  - name: Install Docker Compose
+    command: curl -L "https://github.com/docker/compose/releases/download/v2.15.0/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose
+    args:
+      creates: /usr/local/bin/docker-compose
+    become: yes
+  - name: Set permissions for Docker Compose
+    command: chmod +x /usr/local/bin/docker-compose
+    become: yes
   - name: Copy docker-compose.yml file
     copy:
-      src: "~/java/docker-compose.yml"
+      src: "~/elastic-ansible/vagrant/docker-compose.yml"
       dest: "~/docker-compose.yml"
 
   - name: Create containers with docker-compose
