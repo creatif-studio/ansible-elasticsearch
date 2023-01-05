@@ -5,13 +5,6 @@
   vars_files:
     - vars.yml
   tasks:
-  - name: Set vm.swappiness to 10
-    sysctl:
-      name: vm.swappiness
-      value: '10'
-      sysctl_set: yes
-      state: present
-      reload: yes
   - name: Install Docker 
     apt:
       update_cache: yes
@@ -31,6 +24,8 @@
       src: "~/java/docker-compose.yml"
       dest: "~/docker-compose.yml"
 # ansible-galaxy collection install community.docker
+# pip3 install docker
+# python3 -m pip install --user ansible-core==2.12.3
   - name: deploy Docker Compose stack
     community.docker.docker_compose:
       project_src: ~/
