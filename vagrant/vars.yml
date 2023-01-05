@@ -2,7 +2,3 @@
 
 disable_firewall: yes
 disable_selinux: yes
-
-elasticsearch_resolv_mode: hosts
-elasticsearch_security_enabled: no
-elasticsearch_https_enabled: no

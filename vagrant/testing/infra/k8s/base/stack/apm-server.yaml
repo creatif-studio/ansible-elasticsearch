@@ -1,0 +1,31 @@
+apiVersion: agent.k8s.elastic.co/v1alpha1
+kind: Agent
+metadata:
+  name: apm-server
+  namespace: default
+spec:
+  version: 8.7.0-2320c424-SNAPSHOT
+  mode: fleet
+  policyID: eck-apm-server
+  kibanaRef:
+    name: kibana
+  fleetServerRef:
+    name: fleet-server
+  deployment:
+    replicas: 1
+    strategy:
+      # Can be changed to "Replace" for extremely memory limited environments.
+      type: "RollingUpdate"
+    podTemplate:
+      spec:
+        containers:
+        - name: agent
+          resources:
+            limits:
+              cpu: 1
+              memory: "2Gi"
+            requests:
+              cpu: 1
+              memory: "1Gi"
+        securityContext:
+          runAsUser: 0

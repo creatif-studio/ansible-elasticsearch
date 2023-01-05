@@ -1,5 +1,0 @@
----
-
-logstash_env_file:
-  Debian: /etc/default/logstash
-  RedHat: /etc/sysconfig/logstash

@@ -1,0 +1,25 @@
+apiVersion: agent.k8s.elastic.co/v1alpha1
+kind: Agent
+metadata:
+  name: fleet-server
+spec:
+  version: 8.7.0-2320c424-SNAPSHOT
+  mode: fleet
+  fleetServerEnabled: true
+  elasticsearchRefs:
+  - name:  elasticsearch
+  kibanaRef:
+    name: kibana
+  deployment:
+    replicas: 1
+    podTemplate:
+      spec:
+        containers:
+        - name: agent
+          resources:
+            limits:
+              memory: "512Mi"
+            requests:
+              memory: "256Mi"
+        securityContext:
+          runAsUser: 0
