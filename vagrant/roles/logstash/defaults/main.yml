@@ -2,7 +2,7 @@
 logstash_group: elk
 logstash_user: elk
 logstash_extract_dir: /opt
-logstash_version: 8.1.0
+logstash_version: 8.5.3
 
 logstash_conf_dir: /etc/logstash
 logstash_log_dir: /var/log/logstash

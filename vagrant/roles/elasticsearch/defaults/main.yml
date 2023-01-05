@@ -19,7 +19,7 @@ elasticsearch_cert_filename: elastic_keystore.p12
 elasticsearch_http_password: htTp4sS2o3d
 elasticsearch_http_file: /tmp/elasticsearch-ssl-http.zip
 elasticsearch_bootstrap_password: changeme
-elasticsearch_version: 8.1.0
+elasticsearch_version: 8.5.3
 elasticsearch_cluster_name: elk-cluster-test
 elasticsearch_jvm_xmx: 256m
 elasticsearch_jvm_xms: 256m
