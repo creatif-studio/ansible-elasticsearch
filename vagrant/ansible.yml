@@ -28,8 +28,11 @@
     become: yes
   - name: Copy docker-compose.yml file
     copy:
-      src: "~/elastic-ansible/vagrant/docker-compose.yml"
+      src: "~/java/docker-compose.yml"
       dest: "~/docker-compose.yml"
-
-  - name: Create containers with docker-compose
-    command: docker-compose up
+# ansible-galaxy collection install community.docker
+  - name: deploy Docker Compose stack
+    community.docker.docker_compose:
+      project_src: ~/
+      files:
+      - docker-compose.yml
