@@ -1,7 +1,7 @@
 kibana_group: elk
 kibana_user: elk
 kibana_extract_dir: /opt
-kibana_version: 8.1.0
+kibana_version: 8.5.3
 kibana_conf_dir: /etc/kibana
 kibana_log_dir: /var/log/kibana
 kibana_certs_dir: /etc/kibana/certs
