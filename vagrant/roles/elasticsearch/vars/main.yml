@@ -1,5 +1,0 @@
----
-
-elasticsearch_env_file:
-  Debian: /etc/default/elasticsearch
-  RedHat: /etc/sysconfig/elasticsearch
